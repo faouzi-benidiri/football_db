@@ -60,6 +60,7 @@ mvn test
 | GET | `/api/v1/teams` | Récupérer toutes les équipes (paginé) |
 | GET | `/api/v1/teams/{id}` | Récupérer une équipe |
 | POST | `/api/v1/teams` | Créer une équipe |
+| PUT | `/api/v1/teams/{id}` | Modifier une équipe |
 | DELETE | `/api/v1/teams/{id}` | Supprimer une équipe |
 
 ### Paramètres GET /api/v1/teams
@@ -83,12 +84,32 @@ src/
 │   ├── repository/      # Accès données
 │   ├── entity/          # Entités JPA
 │   ├── dto/             # Data Transfer Objects
-│   ├── enums/           # Énumérations
+│   ├── constant/        # Énumérations
 │   └── exception/       # Exceptions custom
 ├── resources/
 │   └── application.properties
 └── test/                # Tests unitaires/intégration
 ```
+
+## 🎯 Justification des Choix Techniques
+
+### PostgreSQL
+**Pourquoi :** Production-ready, simule mieux l'environnement final qu'une base embarquée (H2).
+
+### Architecture 3-tiers (Controller → Service → Repository)
+**Pourquoi :** Sépare les responsabilités.
+
+### DTOs (Data Transfer Objects)
+**Pourquoi :** Crée une couche d'isolation entre la base et l'API.
+
+### Validation Jakarta
+**Pourquoi :** Annotations sur les DTOs, validation centralisée et déclarative.
+
+### UUID pour les IDs
+**Pourquoi :** Générable sans coordination base de données, plus sécurisé que des IDs séquentiels.
+
+### Docker pour PostgreSQL
+**Pourquoi :** Environnement reproductible.
 
 ## 🎯 Positions Disponibles
 
@@ -113,11 +134,12 @@ Content-Type: application/json
 }
 ```
 
-## 🏗️ Architecture
+## 🏗️ Stack Technique
 
 - **Spring Boot 4.0.0** : Framework principal
 - **PostgreSQL** : Base de données
 - **Spring Data JPA** : ORM
-- **Hibernate** : Mapping entités
+- **Hibernate** : Mapping entités-tables
 - **Jakarta Validation** : Validation des données
 - **SLF4J + Logback** : Logging
+- **JUnit 5 + Mockito** : Tests
