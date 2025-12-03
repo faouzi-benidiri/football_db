@@ -1,0 +1,24 @@
+meta {
+  name: createTeamWithoutPlayers
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/api/v1/teams
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "AJJACIO",
+    "acronym": "AJA",
+    "budget": 50000000
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

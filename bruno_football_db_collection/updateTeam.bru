@@ -1,0 +1,23 @@
+meta {
+  name: updateTeam
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:8080/api/v1/teams/{{teamId}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "OGC Ni",
+    "acronym": "OGCN",
+    "budget": 60000000
+  }
+}
+
+settings {
+  encodeUrl: true
+}

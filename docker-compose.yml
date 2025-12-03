@@ -1,0 +1,21 @@
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: football_db
+    environment:
+      POSTGRES_USER: football_db
+      POSTGRES_PASSWORD: football_db
+      POSTGRES_DB: football_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U football_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

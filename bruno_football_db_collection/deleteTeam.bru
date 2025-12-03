@@ -1,0 +1,15 @@
+meta {
+  name: deleteTeam
+  type: http
+  seq: 7
+}
+
+delete {
+  url: http://localhost:8080/api/v1/teams/{{teamId}}
+  body: json
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

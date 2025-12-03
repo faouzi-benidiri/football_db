@@ -1,0 +1,36 @@
+meta {
+  name: createTeam
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/v1/teams
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "OGC Nice",
+    "acronym": "OGCN",
+    "budget": 60000000,
+    "players": [
+      {"name": "Alexandre Olliero", "position": "GARDIEN"},
+      {"name": "Dante", "position": "DEFENSEUR"},
+      {"name": "Anthony Rouault", "position": "DEFENSEUR"},
+      {"name": "Aurélio Buta", "position": "DEFENSEUR"},
+      {"name": "Bradley Locko", "position": "DEFENSEUR"},
+      {"name": "Jonathan Clauss", "position": "MILIEU"},
+      {"name": "Hicham Boudaoui", "position": "MILIEU"},
+      {"name": "Branco van den Boomen", "position": "MILIEU"},
+      {"name": "Gaëtan Laborde", "position": "ATTAQUANT"},
+      {"name": "Jérémie Boga", "position": "ATTAQUANT"},
+      {"name": "Evann Guessand", "position": "ATTAQUANT"}
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
