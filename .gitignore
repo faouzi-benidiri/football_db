@@ -1,33 +1,75 @@
-HELP.md
+# Build artifacts
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+build/
+*.jar
+*.war
+*.nar
+*.ear
 
-### STS ###
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/
+.m2/
+
+# IDE - Eclipse
 .apt_generated
 .classpath
+.c9/
+*.launch
 .factorypath
 .project
 .settings
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
+# IDE - IntelliJ IDEA
+.idea/
+.idea_modules/
 *.iws
 *.iml
 *.ipr
+*.idc
 
-### NetBeans ###
+# IDE - VS Code
+.vscode/
+.vscode-test
+*.vsix
+
+# IDE - NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+logs/
+
+# Other
+*.swp
+*.swo
+*~
+.classpath
+.factorypath
+.project
+.c9/
+node_modules/
+
+# Don't ignore
+!**/src/main/**/target/
+!**/src/test/**/target/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-.vscode/
